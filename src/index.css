@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ant Design overrides to match brand */
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #1B2559 !important;
+  font-weight: 600;
+}
+.ant-tabs-ink-bar {
+  background: #2C3E8C !important;
+}
+.ant-btn-primary {
+  background-color: #1B2559 !important;
+  border-color: #1B2559 !important;
+}
+.ant-btn-primary:hover {
+  background-color: #2C3E8C !important;
+  border-color: #2C3E8C !important;
+}
