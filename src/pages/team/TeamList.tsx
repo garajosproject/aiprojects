@@ -75,14 +75,14 @@ function MemberRow({ member }: { member: TeamMember }) {
       </div>
 
       {/* Edit */}
-      <Button
-        type="primary"
-        size="small"
-        icon={<EditOutlined />}
-        className="rounded-full text-xs"
+      <Link
+        to={`/team/${member.id}`}
+        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors"
+        style={{ background: '#E9EFFF', color: '#133696' }}
       >
-        <Link to={`/team/${member.id}`} className="text-white text-xs">Edit Profile</Link>
-      </Button>
+        <EditOutlined style={{ fontSize: 11 }} />
+        Edit Profile
+      </Link>
     </div>
   )
 }
