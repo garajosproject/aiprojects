@@ -34,7 +34,7 @@ interface KpiCardProps {
 
 function KpiCard({ label, value, sub, trend, icon, iconBg, iconColor }: KpiCardProps) {
   return (
-    <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4 flex-1 min-w-0">
+    <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-4 flex-1 min-w-0">
       <div className="flex items-start justify-between mb-3">
         <div
           className="w-9 h-9 rounded-lg flex items-center justify-center text-base flex-shrink-0"
@@ -44,7 +44,7 @@ function KpiCard({ label, value, sub, trend, icon, iconBg, iconColor }: KpiCardP
         </div>
         {trend !== undefined && (
           <span
-            className={`flex items-center gap-0.5 text-xs font-medium px-1.5 py-0.5 rounded-full ${
+            className={`flex items-center gap-0.5 text-xs font-medium px-1.5 py-0.5 rounded-lg ${
               trend >= 0 ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-500'
             }`}
           >
@@ -124,7 +124,7 @@ export default function Dashboard() {
       <div className="p-5 space-y-5">
 
         {/* ── FitPlus identity banner ──────────────────────────── */}
-        <div className="bg-white rounded-xl border border-gray-100 shadow-sm px-5 py-3 flex items-center justify-between">
+        <div className="bg-white rounded-lg border border-gray-100 shadow-sm px-5 py-3 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <FitPlusLogo scale={0.65} fontSize={16} textColor="#133696" />
             <div className="w-px h-6 bg-gray-200" />
@@ -170,7 +170,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-3 gap-4">
 
           {/* Area chart — patient growth over 6 months */}
-          <div className="col-span-2 bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+          <div className="col-span-2 bg-white rounded-lg border border-gray-100 shadow-sm p-4">
             <SectionHeader
               title="Patient Stage Trends — 6 Months"
               action={<span className="text-xs text-gray-400">May – Oct 2022</span>}
@@ -204,7 +204,7 @@ export default function Dashboard() {
           </div>
 
           {/* Status Pie */}
-          <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+          <div className="bg-white rounded-lg border border-gray-100 shadow-sm p-4">
             <SectionHeader title="Patient Status Breakdown" />
             <ResponsiveContainer width="100%" height={140}>
               <PieChart>
@@ -241,7 +241,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-3 gap-4">
 
           {/* Success Metrics */}
-          <div className="col-span-1 bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+          <div className="col-span-1 bg-white rounded-lg border border-gray-100 shadow-sm p-4">
             <SectionHeader
               title="Success Metrics"
               action={
@@ -272,7 +272,7 @@ export default function Dashboard() {
           </div>
 
           {/* BMI + Weight trend */}
-          <div className="col-span-2 bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+          <div className="col-span-2 bg-white rounded-lg border border-gray-100 shadow-sm p-4">
             <SectionHeader
               title="Avg BMI & Weight Trend Across Cohort"
               action={<span className="text-xs text-gray-400">6-month rolling average</span>}
@@ -314,7 +314,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-3 gap-4">
 
           {/* Monthly new vs churned bar */}
-          <div className="col-span-1 bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+          <div className="col-span-1 bg-white rounded-lg border border-gray-100 shadow-sm p-4">
             <SectionHeader title="Monthly Patient Intake vs Churn" />
             <ResponsiveContainer width="100%" height={180}>
               <BarChart
@@ -341,7 +341,7 @@ export default function Dashboard() {
           </div>
 
           {/* Upcoming Tasks */}
-          <div className="col-span-2 bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+          <div className="col-span-2 bg-white rounded-lg border border-gray-100 shadow-sm p-4">
             <SectionHeader
               title="Upcoming Tasks"
               action={
@@ -374,7 +374,7 @@ export default function Dashboard() {
 
                     {/* Priority badge */}
                     <span
-                      className="text-xs font-medium px-2 py-0.5 rounded-full flex-shrink-0"
+                      className="text-xs font-medium px-2 py-0.5 rounded-lg flex-shrink-0"
                       style={{ background: p.bg, color: p.color }}
                     >
                       {p.label}
@@ -390,7 +390,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-3 gap-4">
 
           {/* Team workload */}
-          <div className="col-span-1 bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+          <div className="col-span-1 bg-white rounded-lg border border-gray-100 shadow-sm p-4">
             <SectionHeader title="Team Workload" />
             <div className="space-y-3">
               {teamMembers
@@ -429,7 +429,7 @@ export default function Dashboard() {
           </div>
 
           {/* Recent Blogs */}
-          <div className="col-span-2 bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+          <div className="col-span-2 bg-white rounded-lg border border-gray-100 shadow-sm p-4">
             <SectionHeader
               title="Recent Articles"
               action={

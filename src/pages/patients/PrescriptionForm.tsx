@@ -193,9 +193,9 @@ function defaultMedicine(): Medicine {
 }
 
 export default function PrescriptionForm() {
-  const { id } = useParams()
+  const { slug } = useParams()
   const navigate = useNavigate()
-  const patient = patients.find(p => p.id === id) ?? patients[0]
+  const patient = patients.find(p => p.slug === slug) ?? patients[0]
 
   const [diagnosis, setDiagnosis] = useState('')
   const [medicines, setMedicines] = useState<Medicine[]>([defaultMedicine()])
@@ -218,7 +218,7 @@ export default function PrescriptionForm() {
     setSaving(true)
     setTimeout(() => {
       setSaving(false)
-      navigate(`/patients/${patient.id}`)
+      navigate(`/patients/${patient.slug}`)
     }, 800)
   }
 
@@ -228,7 +228,7 @@ export default function PrescriptionForm() {
         Patient
       </Link>
       <span className="text-[#A9B2B9]">›</span>
-      <Link to={`/patients/${patient.id}`} className="text-[#A9B2B9] hover:text-[#133696] transition-colors">
+      <Link to={`/patients/${patient.slug}`} className="text-[#A9B2B9] hover:text-[#133696] transition-colors">
         {patient.name}
       </Link>
       <span className="text-[#A9B2B9]">›</span>

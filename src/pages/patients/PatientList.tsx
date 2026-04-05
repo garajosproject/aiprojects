@@ -74,7 +74,7 @@ function PatientCard({ patient }: { patient: Patient }) {
       <div className="flex items-start gap-3 w-56 flex-shrink-0">
         <PatientAvatar name={patient.name} status={patient.status} />
         <div className="flex flex-col gap-1.5 min-w-0">
-          <Link to={`/patients/${patient.id}`} className="text-sm font-semibold text-[#133696] hover:underline leading-5 underline" style={{ textDecorationSkipInk: 'none' }}>
+          <Link to={`/patients/${patient.slug || patient.id}`} className="text-sm font-semibold text-[#133696] hover:underline leading-5 underline" style={{ textDecorationSkipInk: 'none' }}>
             {patient.name}
           </Link>
           <p className="text-xs text-[#434D56] leading-5 whitespace-nowrap">{patient.age} Yr, {patient.gender}, {patient.city}</p>
@@ -101,13 +101,13 @@ function PatientCard({ patient }: { patient: Patient }) {
 
       <div className="flex flex-col gap-2 w-44 flex-shrink-0">
         <span className="inline-block px-2.5 py-0.5 rounded-lg text-xs font-bold bg-[#EEF1F3] text-[#434D56] w-fit">Assigned Team</span>
-        <div className="flex items-center gap-1.5 border border-[#EEF1F3] rounded-full px-2 py-1">
+        <div className="flex items-center gap-1.5 border border-[#EEF1F3] rounded-lg px-2 py-1">
           <div className="w-4 h-4 rounded-md bg-blue-100 flex items-center justify-center text-[10px] font-semibold text-[#133696] flex-shrink-0">
             {patient.assignedDoctor.replace('Dr. ', '').charAt(0)}
           </div>
           <span className="text-xs text-[#434D56] truncate">{patient.assignedDoctor}</span>
         </div>
-        <div className="flex items-center gap-1.5 border border-[#EEF1F3] rounded-full px-2 py-1">
+        <div className="flex items-center gap-1.5 border border-[#EEF1F3] rounded-lg px-2 py-1">
           <div className="w-4 h-4 rounded-md bg-pink-100 flex items-center justify-center text-[10px] font-semibold text-pink-600 flex-shrink-0">
             {patient.assignedCoach.charAt(0)}
           </div>
@@ -150,7 +150,7 @@ function Chip({ label, selected, onToggle }: { label: string; selected: boolean;
   return selected ? (
     <button
       onClick={onToggle}
-      className="inline-flex items-center gap-1.5 pl-3 pr-2 py-[3px] rounded-full text-[13px] font-semibold text-white transition-colors"
+      className="inline-flex items-center gap-1.5 pl-3 pr-2 py-[3px] rounded-lg text-[13px] font-semibold text-white transition-colors"
       style={{ background: '#3C5DB7' }}
     >
       {label}
@@ -161,7 +161,7 @@ function Chip({ label, selected, onToggle }: { label: string; selected: boolean;
   ) : (
     <button
       onClick={onToggle}
-      className="inline-flex items-center px-3 py-[3px] rounded-full text-[13px] font-semibold text-[#A9B2B9] border border-[#EEF1F3] hover:border-[#3C5DB7] hover:text-[#3C5DB7] transition-colors"
+      className="inline-flex items-center px-3 py-[3px] rounded-lg text-[13px] font-semibold text-[#A9B2B9] border border-[#EEF1F3] hover:border-[#3C5DB7] hover:text-[#3C5DB7] transition-colors"
     >
       {label}
     </button>
@@ -342,7 +342,7 @@ function FilterPanel({ onClose, onApply, onClearAll }: { onClose: () => void; on
                   <button
                     key={city}
                     onClick={() => removeCity(city)}
-                    className="inline-flex items-center gap-1.5 pl-3 pr-2 py-[3px] rounded-full text-[13px] font-semibold text-white transition-colors"
+                    className="inline-flex items-center gap-1.5 pl-3 pr-2 py-[3px] rounded-lg text-[13px] font-semibold text-white transition-colors"
                     style={{ background: '#3C5DB7' }}
                   >
                     {city}
@@ -356,7 +356,7 @@ function FilterPanel({ onClose, onApply, onClearAll }: { onClose: () => void; on
                   <button
                     key={city}
                     onClick={() => toggle('cities', city)}
-                    className="inline-flex items-center px-3 py-[3px] rounded-full text-[13px] font-semibold border border-[#EEF1F3] text-[#3C5DB7] hover:border-[#3C5DB7] transition-colors"
+                    className="inline-flex items-center px-3 py-[3px] rounded-lg text-[13px] font-semibold border border-[#EEF1F3] text-[#3C5DB7] hover:border-[#3C5DB7] transition-colors"
                   >
                     {city}
                   </button>
@@ -370,7 +370,7 @@ function FilterPanel({ onClose, onApply, onClearAll }: { onClose: () => void; on
                   <button
                     key={city}
                     onClick={() => toggle('cities', city)}
-                    className="inline-flex items-center px-3 py-[3px] rounded-full text-[13px] font-semibold border border-[#EEF1F3] text-[#3C5DB7] hover:border-[#3C5DB7] transition-colors"
+                    className="inline-flex items-center px-3 py-[3px] rounded-lg text-[13px] font-semibold border border-[#EEF1F3] text-[#3C5DB7] hover:border-[#3C5DB7] transition-colors"
                   >
                     {city}
                   </button>
@@ -425,7 +425,7 @@ function FilterPanel({ onClose, onApply, onClearAll }: { onClose: () => void; on
                   <button
                     key={doc}
                     onClick={() => removeDoctor(doc)}
-                    className="inline-flex items-center gap-1.5 pl-3 pr-2 py-[3px] rounded-full text-[13px] font-semibold text-white"
+                    className="inline-flex items-center gap-1.5 pl-3 pr-2 py-[3px] rounded-lg text-[13px] font-semibold text-white"
                     style={{ background: '#3C5DB7' }}
                   >
                     {doc}
@@ -499,7 +499,7 @@ export default function PatientList() {
       <Header title="Patient" icon={<UserOutlined />} searchPlaceholder="Search Patients" showSearch />
 
       <div className="flex-1 overflow-auto p-5 bg-[#EEF1F3]">
-        <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
 
           {/* Toolbar */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-[#D9DEE2]">
@@ -523,7 +523,7 @@ export default function PatientList() {
               {activeFilterCount > 0 && (
                 <button
                   onClick={() => setAppliedFilters(null)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors"
                   style={{ background: '#FFE5E5', color: '#812222' }}
                 >
                   <CloseOutlined style={{ fontSize: 10 }} />

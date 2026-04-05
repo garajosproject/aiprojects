@@ -2,6 +2,7 @@ export type PatientStatus = 'Active' | 'Onboarding' | 'Plan Expired' | 'In Activ
 
 export interface Patient {
   id: string
+  slug: string
   name: string
   age: number
   gender: string
@@ -9,6 +10,8 @@ export interface Patient {
   phone: string
   email: string
   status: PatientStatus
+  tag?: string
+  occupation?: string
   planType: string
   planMonths: number
   planDays: number
@@ -68,40 +71,46 @@ export interface SettingsCategory {
 export const patients: Patient[] = [
   {
     id: '1',
-    name: 'Chetan Bhosale',
-    age: 28,
+    slug: 'chetanbosale',
+    name: 'Chetan Bosale',
+    age: 35,
     gender: 'Male',
-    city: 'Mumbai',
-    phone: '9876543210',
-    email: 'chetanbhosale@gmail.com',
+    city: 'Pune',
+    phone: '+91-9823456710',
+    email: 'chetan.bosale@gmail.com',
     status: 'Active',
-    planType: 'Yearly Plan',
-    planMonths: 11,
-    planDays: 3,
+    tag: 'Improving',
+    occupation: 'Software Engineer',
+    planType: 'Weight Loss 3 Month Programme',
+    planMonths: 10,
+    planDays: 5,
     lastActivity: 'Today',
-    renewalDate: '13 Dec 2023',
-    memberSince: '12 Dec 2022',
-    currentBMI: 25.0,
-    currentWeight: 80,
-    startingBMI: 30.0,
-    startingWeight: 98,
-    height: "5'8 Inch",
+    renewalDate: '06 Feb 2027',
+    memberSince: '10 Feb 2026',
+    currentBMI: 27.8,
+    currentWeight: 85,
+    startingBMI: 30.7,
+    startingWeight: 94,
+    height: "5'9 Inch",
     bodyShape: 'Oval',
-    sugarLevel: '99 mg/dL',
-    bloodPressure: '120/80 mmHg',
+    sugarLevel: '102 mg/dL',
+    bloodPressure: '128/84 mmHg',
     assignedDoctor: 'Dr. Ankur Gulati',
     assignedCoach: 'Mahesh Patil',
     weightHistory: [
-      { month: 'Oct', weight: 80 },
-      { month: 'Sep', weight: 82 },
-      { month: 'Aug', weight: 86 },
-      { month: 'Jul', weight: 89 },
-      { month: 'Jun', weight: 93 },
-      { month: 'May', weight: 98 },
+      { month: 'Week 8', weight: 85 },
+      { month: 'Week 7', weight: 86 },
+      { month: 'Week 6', weight: 88 },
+      { month: 'Week 5', weight: 89 },
+      { month: 'Week 4', weight: 90 },
+      { month: 'Week 3', weight: 91 },
+      { month: 'Week 2', weight: 92 },
+      { month: 'Week 1', weight: 94 },
     ],
   },
   {
     id: '2',
+    slug: 'aarvisaiyyad',
     name: 'Aarvi Saiyyad',
     age: 28,
     gender: 'Female',
@@ -136,6 +145,7 @@ export const patients: Patient[] = [
   },
   {
     id: '3',
+    slug: 'yuganthallikeri',
     name: 'Yugant Hallikeri',
     age: 28,
     gender: 'Male',
@@ -170,6 +180,7 @@ export const patients: Patient[] = [
   },
   {
     id: '4',
+    slug: 'kalasalam',
     name: 'Kala Salam',
     age: 28,
     gender: 'Male',
@@ -204,6 +215,7 @@ export const patients: Patient[] = [
   },
   {
     id: '5',
+    slug: 'lomisachal',
     name: 'Lomi Sachal',
     age: 32,
     gender: 'Female',
