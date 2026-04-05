@@ -342,7 +342,7 @@ function TimelineEventCard({ event }: { event: TLItem }) {
   const s = EVENT_STYLE[event.type]
   const labelMap: Record<TLEventType, string> = {
     milestone: 'Milestone', prescription: 'Medical Goal', goal: 'Goal',
-    note: 'Coach Note', visit: 'Doctor Visit', report: 'Report', plan: 'Plan Started',
+    note: 'Coach Note', visit: 'Doctor Visit', report: 'Report', plan: 'Plan Started', edit: 'Edit Log',
   }
   return (
     <div className="relative pl-5 pb-6 last:pb-0">
